@@ -21,9 +21,10 @@ const FavoriteSongs = (props) => {
     </div>
   );
 
-  const loading = () => <h1>Loading...</h1>;
+  const loading = () => <h1>No favorites yet.</h1>;
 
   return songs.length > 0 ? loaded() : loading();
+  
 };
 
 
