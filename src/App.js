@@ -45,9 +45,6 @@ const url = "https://songs-329-tunr-backend.herokuapp.com"
   }
 
    // when screen loads, get list of all coffees
-   useEffect(() => { 
-    getSongs()
-  }, [])
 
   // handleCreate - function for when create is submitted
 const handleCreate = (newSong) => { 
@@ -60,16 +57,24 @@ const handleCreate = (newSong) => {
   })
   .then(() => getSongs())
 }
+// deleteSong to delete individual Songs
+const handleDelete = (song) => {
+  fetch(url + "/songs/" + song._id, {
+    method: "delete",
+  
+  })
+  .then(() => {
+    getSongs()
+  })
+};
 
   return (
     <div className="App">
-      <SongList songs={songs} setFavoriteSongs={setFavoriteSongs}/>
+      <SongList songs={songs} setFavoriteSongs={setFavoriteSongs} handleSubmit={handleDelete}/>
       <FavoriteSongs songs={songs} favoriteSongs={favoriteSongs}/> 
       {/* <FavoriteSongs songs={[{title:"Purple Rain"}, {artist:"Prince"}, {time:"6:66"}]}/> */}
-
-
       <AddSong song={emptySong} label="create" handleSubmit={handleCreate}/>
-
+      
     </div>
   );
 }
