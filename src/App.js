@@ -46,8 +46,6 @@ const handleCreate = (newSong) => {
       <SongList songs={songs} setFavoriteSongs={setFavoriteSongs}/>
       <FavoriteSongs songs={songs} favoriteSongs={favoriteSongs}/> 
       {/* <FavoriteSongs songs={[{title:"Purple Rain"}, {artist:"Prince"}, {time:"6:66"}]}/> */}
-
-
       <AddSong song={emptySong} label="create" handleSubmit={handleCreate}/>
 
     </div>
