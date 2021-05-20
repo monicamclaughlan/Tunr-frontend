@@ -27,11 +27,6 @@ import SongList from './SongList'
 function App() {
 const url = "https://songs-329-tunr-backend.herokuapp.com"
 
-
-function App() {
-
-
-
   const emptySong = { 
     title: "", 
     artist: "", 
@@ -42,6 +37,17 @@ function App() {
   const [songs, setSongs] = useState([emptySong])
   const [favoriteSongs, setFavoriteSongs] = useState([])
 
+  // getSongs function 
+  const getSongs = () => { 
+    fetch(url + '/songs/')
+    .then((response) => response.json())
+    .then((data) => setSongs(data))
+  }
+
+   // when screen loads, get list of all coffees
+   useEffect(() => { 
+    getSongs()
+  }, [])
 
   // handleCreate - function for when create is submitted
 const handleCreate = (newSong) => { 
