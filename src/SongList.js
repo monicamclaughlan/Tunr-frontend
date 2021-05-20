@@ -2,18 +2,24 @@ import React from "react";
 
 const SongList = (props)=>{
     
+    
     //destructure the songs from props
     const { songs } = props
-
+    //handler function to add song to favorites
+    const handleAddFavorite =(song)=>{
+        props.setFavoriteSongs([...props.favoriteSongs, song])
+        console.log(`added ${song.title} to favorites`)
+    }
 // loading sendss back a div containing articles that show song info if songs have been added
     const loaded = ()=>(
         <div>
             {songs.map((song)=>(
                 <article className ="song" key={song.id}>
-                    <h2>{song.title}</h2>
+                    <h2 >{song.title}</h2>
                     <h3>{song.time}</h3>
                     <h3>{song.artist}</h3>
                     <h3>{song.favorite}</h3>
+                    <button onClick ={()=>handleAddFavorite(song)}>a heart</button>
                 </article>
             ))}
         </div>

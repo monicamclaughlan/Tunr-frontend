@@ -1,5 +1,5 @@
 import './App.css';
-import React, {useState} from "react"
+import React, {useState, useEffect} from "react"
 import FavoriteSongs from "./FavoriteSongs"
 import AddSong from './AddSong'
 import SongList from './SongList'
@@ -43,7 +43,7 @@ const handleCreate = (newSong) => {
 
   return (
     <div className="App">
-      <SongList songs={songs} setFavoriteSongs={setFavoriteSongs}/>
+      <SongList songs={songs} favoriteSongs ={favoriteSongs} setFavoriteSongs={setFavoriteSongs}/>
       <FavoriteSongs songs={songs} favoriteSongs={favoriteSongs}/> 
       {/* <FavoriteSongs songs={[{title:"Purple Rain"}, {artist:"Prince"}, {time:"6:66"}]}/> */}
 
