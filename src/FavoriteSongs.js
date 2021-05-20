@@ -13,17 +13,18 @@ const FavoriteSongs = (props) => {
       <h1>Favorite Songs</h1>
       {songs.map((song) => (
         <article key={song._id}>
-          <p>{song.title}</p>
-          <p>{song.artist}</p>
-          <p>{song.time}</p>
+          <p>Title: {song.title}</p>
+          <p>Artist: {song.artist}</p>
+          <p>Time: {song.time}</p>
         </article>
       ))}
     </div>
   );
 
-  const loading = () => <h1>Loading...</h1>;
+  const loading = () => <h1>No favorites yet.</h1>;
 
   return songs.length > 0 ? loaded() : loading();
+
 };
 
 
